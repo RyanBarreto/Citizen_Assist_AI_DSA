@@ -1,8 +1,8 @@
-#Documentação Técnica
+# Documentação Técnica
 
-###Recorte Escolhido: Serviços de Saúde Pública Municipais (postos de vacinação, hospitais de urgência, exames, etc.).
+### Recorte Escolhido: Serviços de Saúde Pública Municipais (postos de vacinação, hospitais de urgência, exames).
 
-###Modelo dos Registros (struct):
+### Modelo dos Registros (struct):
 Cada nó da lista encadeada armazena os seguintes campos:
 
 id: Identificador único (inteiro).
@@ -19,17 +19,17 @@ local: Região ou endereço de atendimento.
 
 proX: Ponteiro para o próximo elemento da lista.
 
-###Lista Encadeada: Implementação dinâmica utilizando alocação de memória (malloc e free), com inserção direta no início, percurso linear para listagem, e ajuste de ponteiros para exclusão segura.
+### Lista Encadeada: Implementação dinâmica utilizando alocação de memória (malloc e free), com inserção direta no início, percurso linear para listagem, e ajuste de ponteiros para exclusão segura.
 
-###Menu Interativo: Interface via terminal baseada em um loop de controle (do-while com switch-case) e validação de opções inválidas.
+### Menu Interativo: Interface via terminal baseada em um loop de controle (do-while com switch-case) e validação de opções inválidas.
 
-#Análise de Algoritmos (Notacao Big-O)
+# Análise de Algoritmos (Notacao Big-O)
 - Insercao (cadastrar): O(1) — Os novos nós são inseridos diretamente no início da lista encadeada, exigindo tempo constante independentemente da quantidade de registros armazenados.
 - Busca e Consulta (consultar): O(n) — Como a lista encadeada não permite acesso indexado direto, a busca linear exige percorrer sequencialmente os nós até encontrar o identificador ou termo desejado.
 - Remocao (excluir): O(n) — No pior caso, é necessário percorrer toda a lista para localizar o elemento anterior e ajustar os ponteiros de encadeamento antes de liberar a memória com free.
 - Ordenacao (ordenar - Insertion Sort): O(n^2) — O algoritmo reorganiza iterativamente os nós com base no ID por meio de remapeamento manual de ponteiros.
 
-#Evidencias de Testes
+# Evidencias de Testes
 Abaixo estão os testes realizados cobrindo cenários normais, limites e entradas inválidas:
 
 | Caso de Teste | Entrada Simulada | Resultado Esperado | Resultado Observado | Status |
