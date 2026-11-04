@@ -60,3 +60,12 @@ ServicoSaude* criarServico(int id, char* titulo, char* categoria, char* descrica
     novo->proX = NULL;
     return novo;
 }
+// Verifica se um ID já existe na lista
+int existeId(ServicoSaude* inicio, int id) {
+    ServicoSaude* atual = inicio;
+    while (atual != NULL) {
+        if (atual->id == id) return 1;
+        atual = atual->proX;
+    }
+    return 0;
+}
