@@ -10,3 +10,12 @@ typedef struct ServicoSaude {
     char local[50];               // Ex: "Zona Norte"
     struct ServicoSaude* proX;    // Ponteiro para o próximo nó
 } ServicoSaude;
+
+void copiarString(char* destino, const char* origem, int tamanhoMaximo) {
+    int i = 0;
+    while (origem[i] != '\0' && i < tamanhoMaximo - 1) {
+        destino[i] = origem[i];
+        i++;
+    }
+    destino[i] = '\0';
+}
