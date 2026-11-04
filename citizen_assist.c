@@ -343,3 +343,64 @@ void liberarLista(ServicoSaude* inicio) {
         atual = proximo;
     }
 }
+// Função Principal
+int main() {
+    ServicoSaude* inicio = NULL;
+    int opcao;
+
+    do {
+        printf("-------------------------------------------\n");
+        printf("    CITIZEN ASSIST AI - SAUDE             \n");
+        printf("-------------------------------------------\n");
+        printf("1. Cadastrar servico\n");
+        printf("2. Listar todos os servicos\n");
+        printf("3. Consultar / Pesquisar servico\n");
+        printf("4. Ordenar servicos (Insertion Sort)\n");
+        printf("5. Atualizar servico\n");
+        printf("6. Excluir servico\n");
+        printf("7. Analise e indicadores\n");
+        printf("8. Sair\n");
+        printf("Escolha uma opcao: ");
+
+        if (scanf("%d", &opcao) != 1) {
+            printf("\nOpcao invalida! Digite um numero.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        while(getchar() != '\n');
+
+        switch (opcao) {
+            case 1:
+                cadastrar(&inicio);
+                break;
+            case 2:
+                listar(inicio);
+                break;
+            case 3:
+                consultar(inicio);
+                break;
+            case 4:
+                ordenar(&inicio);
+                listar(inicio);
+                break;
+            case 5:
+                atualizar(inicio);
+                break;
+            case 6:
+                excluir(&inicio);
+                break;
+            case 7:
+                analise(inicio);
+                break;
+            case 8:
+                printf("\nEncerrando o sistema e liberando memoria...\n");
+                liberarLista(inicio);
+                printf("Sistema encerrado com sucesso.\n");
+                break;
+            default:
+                printf("\nOpcao invalida! Escolha um numero de 1 a 8.\n");
+        }
+    } while (opcao != 8);
+
+    return 0;
+}
