@@ -19,3 +19,44 @@ void copiarString(char* destino, const char* origem, int tamanhoMaximo) {
     }
     destino[i] = '\0';
 }
+
+void removerNovaLinha(char* str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] == '\n') {
+            str[i] = '\0';
+            break;
+        }
+        i++;
+    }
+}
+
+int contemSubstring(const char* texto, const char* termo) {
+    if (termo[0] == '\0') return 1;
+    int i = 0;
+    while (texto[i] != '\0') {
+        int j = 0;
+        while (texto[i + j] != '\0' && termo[j] != '\0' && texto[i + j] == termo[j]) {
+            j++;
+        }
+        if (termo[j] == '\0') return 1;
+        i++;
+    }
+    return 0;
+}
+// Função para criar um novo nó
+ServicoSaude* criarServico(int id, char* titulo, char* categoria, char* descricao, char* requisitos, char* local) {
+    ServicoSaude* novo = (ServicoSaude*) malloc(sizeof(ServicoSaude));
+    if (novo == NULL) {
+        printf("Erro de alocacao de memoria!\n");
+        exit(1);
+    }
+    novo->id = id;
+    copiarString(novo->titulo, titulo, sizeof(novo->titulo));
+    copiarString(novo->categoria, categoria, sizeof(novo->categoria));
+    copiarString(novo->descricao, descricao, sizeof(novo->descricao));
+    copiarString(novo->requisitos, requisitos, sizeof(novo->requisitos));
+    copiarString(novo->local, local, sizeof(novo->local));
+    novo->proX = NULL;
+    return novo;
+}
