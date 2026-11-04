@@ -116,3 +116,14 @@ void cadastrar(ServicoSaude** inicio) {
 
     printf("Servico cadastrado com sucesso!\n");
 }
+// Exibir um único registro 
+void exibirRegistro(ServicoSaude* s) {
+    printf("----------------------------------------\n");
+    printf("ID: %d\n", s->id);
+    printf("Titulo: %s\n", s->titulo);
+    printf("Categoria: %s\n", s->categoria);
+    printf("Descricao: %s\n", s->descricao);
+    printf("Requisitos: %s\n", s->requisitos);
+    printf("Local: %s\n", s->local);
+    printf("----------------------------------------\n");
+}
