@@ -69,3 +69,50 @@ int existeId(ServicoSaude* inicio, int id) {
     }
     return 0;
 }
+
+void cadastrar(ServicoSaude** inicio) {
+    int id;
+    char titulo[50], categoria[30], descricao[100], requisitos[100], local[50];
+
+    printf("\n--- CADASTRAR NOVO SERVICO ---\n");
+    printf("Digite o ID unico (inteiro): ");
+    if (scanf("%d", &id) != 1) {
+        printf("Entrada invalida!\n");
+        while(getchar() != '\n');
+        return;
+    }
+    while(getchar() != '\n'); // Limpa buffer
+
+    if (existeId(*inicio, id)) {
+        printf("Erro: Ja existe um servico com o ID %d!\n", id);
+        return;
+    }
+
+    printf("Titulo do servico: ");
+    fgets(titulo, sizeof(titulo), stdin);
+    removerNovaLinha(titulo);
+
+    printf("Categoria (ex: Vacinacao, Urgencia): ");
+    fgets(categoria, sizeof(categoria), stdin);
+    removerNovaLinha(categoria);
+
+    printf("Descricao: ");
+    fgets(descricao, sizeof(descricao), stdin);
+    removerNovaLinha(descricao);
+
+    printf("Requisitos: ");
+    fgets(requisitos, sizeof(requisitos), stdin);
+    removerNovaLinha(requisitos);
+
+    printf("Local / Regiao: ");
+    fgets(local, sizeof(local), stdin);
+    removerNovaLinha(local);
+
+    ServicoSaude* novo = criarServico(id, titulo, categoria, descricao, requisitos, local);
+
+    // Inserção no início da lista
+    novo->proX = *inicio;
+    *inicio = novo;
+
+    printf("Servico cadastrado com sucesso!\n");
+}
