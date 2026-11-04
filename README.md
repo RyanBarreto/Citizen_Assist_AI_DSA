@@ -1,3 +1,7 @@
+# INTEGRANTES DO GRUPO:
+Ryan Barreto Carlos Dias - RM: 574126
+Fernando Henrique Lembo - RM: 570228
+
 # Documentação Técnica
 
 ### Recorte Escolhido: Serviços de Saúde Pública Municipais (postos de vacinação, hospitais de urgência, exames).
